@@ -9,13 +9,13 @@ if __name__ == "__main__":
     spacy = Spacy()
 
     entity_disambiguator = EntityDisambiguator()
+    entity_graph = EntityGraph(entity_disambiguator)
+
 
     for file in text_dir.iterdir():
         print("Processing:", file)
         with open(file) as f:
             doc = spacy.process(f.read())
-            doc_entity_graph = EntityGraph(entity_disambiguator)
             for sentence in doc.sents:
-                doc_entity_graph.add(sentence)
-        print(doc_entity_graph.to_json())
-        break
+                entity_graph.add(sentence)
+    print(entity_graph.to_json())

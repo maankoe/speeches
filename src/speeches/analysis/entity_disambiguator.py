@@ -1,6 +1,5 @@
 from speeches.analysis.entity import Entity
 from speeches.analysis.spacy_wrappers.ent import Ent
-from speeches.analysis.spacy_wrappers.span import Span
 
 
 class EntityDisambiguator:
